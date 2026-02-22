@@ -1,15 +1,42 @@
 "use client"
 import Image from "next/image";
+import React from 'react';
 
-export default function Home() {
+function GitHubButton(){
 
   const URLFunction = (url:string) => {
     window.open(url, '_blank', 'noopener,noreferrer');
   }
 
+  return (
+    <button
+      className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
+      onClick={() => URLFunction('https://github.com/FilipposKast')}
+      > 
+        My GitHub
+      </button>
+  );
+}
+
+function YoutubeButton(){
+
   const URLFunction2 = (url:string) => {
     window.open(url, '_blank', 'noopener,noreferrer');
   }
+
+  return (
+    <button
+      className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
+      onClick={() => URLFunction2('https://www.youtube.com/')}
+    >
+      <img src="./Lucy-Selfish.jpg" className="rounded-4xl w-12 h-12"/>
+      Youtube
+    </button>
+  );
+}
+
+
+export default function Home() {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
@@ -23,10 +50,10 @@ export default function Home() {
           priority
         />
         <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+          <h1 className="max-w-xs text-4xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
+            These are testing grounds for React / jsx
           </h1>
-          <h1>I want to be ninja</h1>
+          <h1 className="text-2xl">Uknown visuals might occur. Please remain calm and stick to the protocol</h1>
           <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
             Looking for a starting point or more instructions? Head over to{" "}
             <a
@@ -45,20 +72,12 @@ export default function Home() {
             center.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <button
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            onClick={() => URLFunction('https://github.com/FilipposKast')}
-            > 
-            My GitHub 
-          </button>
-          <button
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            onClick={() => URLFunction2('https://www.youtube.com/')}
-            >
-            Youtube 
-          </button>
-        
+        <div className="flex gap-4 text-base font-medium sm:flex-row">
+          Testing Buttons: 
+        </div>
+        <div className="flex gap-5">
+          <GitHubButton />
+          <YoutubeButton />
         </div>
       </main>
     </div>
